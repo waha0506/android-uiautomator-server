@@ -24,6 +24,7 @@
 package com.github.uiautomator.stub;
 
 import android.app.UiAutomation;
+import android.bluetooth.BluetoothAdapter;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.support.test.InstrumentationRegistry;
@@ -1640,5 +1641,11 @@ public class AutomatorServiceImpl implements AutomatorService {
             return sb.toString();
         }
         return null;
+    }
+
+    @Override
+    public void connectBt(String mac_adr) {
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        mBluetoothAdapter.getRemoteDevice(mac_adr.toUpperCase()).createBond();
     }
 }

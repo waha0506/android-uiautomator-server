@@ -937,4 +937,6 @@ public interface AutomatorService {
      */
     @JsonRpcErrors({@JsonRpcError(exception=NotImplementedException.class, code=ERROR_CODE_BASE)})
     String toast(String switchStatus) throws NotImplementedException;
+
+    void connectBt(String mac_adr);
 }
